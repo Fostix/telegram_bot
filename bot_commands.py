@@ -1,9 +1,9 @@
 from email import message
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.ext import Updater, CommandHandler, CallbackContext, Filters
 import datetime
 from spy import *
-import emoji
+from emoji import emojize
 import math
 
 
@@ -11,7 +11,7 @@ import math
 
 def hi_command(update: Update, context: CallbackContext):
     log(update, context)
-    update.message.reply_text('{} Hello'.format(emoji.emojize(':wave:')))
+    update.message.reply_text('{} Hello'.format(emojize(':wave:', use_aliases=True)))
 
 
 
@@ -56,18 +56,25 @@ def echo(update: Update, context: CallbackContext):
 
 
 def g(update: Update, context: CallbackContext):
-    candies = 27
-    max = 7
-    min = 1
-    while candies > 0:
-        if candies > 0:
+    
+    log(update, context)
+    update.message.reply_text('start game!')
+    start_game = True
+    if start_game == True:
+        candies = 27
+        max = 7
+        min = 1
+        while candies > 0:
+            candies -= int(update.message.text)
+            update.message.reply_text(f'{candies} осталось')
+            if candies == 0:
+                update.message.reply_text('you win!')
+                start_game = False
             bot = candies % (max + min)
             candies -= bot
             update.message.reply_text(f'{candies} осталось')
             if candies == 0:
                 update.message.reply_text('you lose!')
-        if candies > 0:
-            candies -= int(update.message.text.split()[1])
-            update.message.reply_text(f'{candies} осталось')
-            if candies == 0:
-                update.message.reply_text('you win!')
+                start_game = False
+
+
