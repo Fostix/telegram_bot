@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 from telegram.ext import CallbackContext
+=======
+from email import message
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext, Filters
+>>>>>>> 53e0e5fc4f2674a6fdc8048f75e4745ddd9f28e9
 import datetime
 from spy import *
-import emoji
+from emoji import emojize
 import math
 
 
@@ -9,7 +15,7 @@ import math
 
 def hi_command(update: Update, context: CallbackContext):
     log(update, context)
-    update.message.reply_text('{} Hello'.format(emoji.emojize(':wave:')))
+    update.message.reply_text('{} Hello'.format(emojize(':wave:', use_aliases=True)))
 
 
 

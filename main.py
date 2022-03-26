@@ -2,6 +2,9 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from bot_commands import *
 
 
+
+
+
 updater = Updater('5139496111:AAGB9KwKmOT8coVEN8OeY1Mrjk4_Fra2KUc')
 
 updater.dispatcher.add_handler(CommandHandler('hi', hi_command))
@@ -10,6 +13,19 @@ updater.dispatcher.add_handler(CommandHandler('help', help_command))
 updater.dispatcher.add_handler(CommandHandler('sum', sum_command))
 updater.dispatcher.add_handler(CommandHandler('minus', minus_command))
 updater.dispatcher.add_handler(CommandHandler('root', root_command))
+<<<<<<< HEAD
+=======
+
+
+updater.dispatcher.add_handler(CommandHandler('g', g))
+updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, g))
+
+
+
+updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+
+
+>>>>>>> 53e0e5fc4f2674a6fdc8048f75e4745ddd9f28e9
 
 
 game_activate = False
