@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 from telegram.ext import CallbackContext
-=======
-from email import message
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext, Filters
->>>>>>> 53e0e5fc4f2674a6fdc8048f75e4745ddd9f28e9
 import datetime
 from spy import *
 from emoji import emojize
