@@ -53,45 +53,45 @@ def echo(update: Update, context: CallbackContext):
     update.message.reply_text(update.message.text)
 
 
-# candies = 27
-# def start_game_candies(update: Update, context: CallbackContext):
-#     update.message.reply_text('setting games')
-#     game_activate = True
-#     return game_activate
+candies = 27
+def start_game_candies(update: Update, context: CallbackContext):
+    update.message.reply_text('setting games')
+    game_activate = True
+    return game_activate
 
 
-# def game_setting(update: Update, context: CallbackContext):
+def game_setting(update: Update, context: CallbackContext):
 
-#     update.message.reply_text('how many candies: ')
-#     candies = int(update.message.text)
+    update.message.reply_text('how many candies: ')
+    candies = int(update.message.text)
 
-#     update.message.reply_text('max take candies: ')
-#     max = int(update.message.text)
-#     return candies, max
+    update.message.reply_text('max take candies: ')
+    max = int(update.message.text)
+    return candies, max
     
 
 
 
 
 
-# def g(update: Update, context: CallbackContext, candies, max):
-#     log(update, context)
-#     update.message.reply_text('start game!, введите сколько конфет можно ввести: ')
-#     max = update.message.text
-#     min = 1
-#     update.message.reply_text('введите количество конфет: ')
-#     candies = update.message.text
-#     if candies > 0:
-#         bot = candies % (max + min)
-#         candies -= bot
-#         update.message.reply_text(f'{candies} осталось')
-#         if candies < 0:
-#             update.message.reply_text('you lose!')
-#         take = update.message.text
-#         print(take)
-#         candies -= int(take)
-#         update.message.reply_text(f'{candies} осталось')
-#         if candies < 0:
-#             update.message.reply_text('you win!')
+def g(update: Update, context: CallbackContext, candies, max):
+    log(update, context)
+    update.message.reply_text('start game!, введите сколько конфет можно ввести: ')
+    max = update.message.text
+    min = 1
+    update.message.reply_text('введите количество конфет: ')
+    candies = update.message.text
+    if candies > 0:
+        bot = candies % (max + min)
+        candies -= bot
+        update.message.reply_text(f'{candies} осталось')
+        if candies < 0:
+            update.message.reply_text('you lose!')
+        take = update.message.text
+        print(take)
+        candies -= int(take)
+        update.message.reply_text(f'{candies} осталось')
+        if candies < 0:
+            update.message.reply_text('you win!')
         
     
