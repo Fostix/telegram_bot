@@ -1,5 +1,4 @@
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from bot_commands import *
 
 
@@ -11,10 +10,19 @@ updater.dispatcher.add_handler(CommandHandler('help', help_command))
 updater.dispatcher.add_handler(CommandHandler('sum', sum_command))
 updater.dispatcher.add_handler(CommandHandler('minus', minus_command))
 updater.dispatcher.add_handler(CommandHandler('root', root_command))
-updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
-updater.dispatcher.add_handler(CommandHandler('g', g))
 
 
+game_activate = False
+game_activate = updater.dispatcher.add_handler(CommandHandler('g', start_game_candies))
+
+if game_activate:
+    candies, max = updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, game_setting))
+
+if candies > 0:
+    updater.dispatcher.add_handler(CommandHandler('g', g(candies, max)), MessageHandler(Filters.text & ~Filters.command, g))
+
+
+## updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
 
 
 print('server start') # не обязательно

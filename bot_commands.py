@@ -1,6 +1,4 @@
-from email import message
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.ext import CallbackContext
 import datetime
 from spy import *
 import emoji
@@ -55,19 +53,45 @@ def echo(update: Update, context: CallbackContext):
     update.message.reply_text(update.message.text)
 
 
-def g(update: Update, context: CallbackContext):
-    candies = 27
-    max = 7
-    min = 1
-    while candies > 0:
-        if candies > 0:
-            bot = candies % (max + min)
-            candies -= bot
-            update.message.reply_text(f'{candies} осталось')
-            if candies == 0:
-                update.message.reply_text('you lose!')
-        if candies > 0:
-            candies -= int(update.message.text.split()[1])
-            update.message.reply_text(f'{candies} осталось')
-            if candies == 0:
-                update.message.reply_text('you win!')
+# candies = 27
+# def start_game_candies(update: Update, context: CallbackContext):
+#     update.message.reply_text('setting games')
+#     game_activate = True
+#     return game_activate
+
+
+# def game_setting(update: Update, context: CallbackContext):
+
+#     update.message.reply_text('how many candies: ')
+#     candies = int(update.message.text)
+
+#     update.message.reply_text('max take candies: ')
+#     max = int(update.message.text)
+#     return candies, max
+    
+
+
+
+
+
+# def g(update: Update, context: CallbackContext, candies, max):
+#     log(update, context)
+#     update.message.reply_text('start game!, введите сколько конфет можно ввести: ')
+#     max = update.message.text
+#     min = 1
+#     update.message.reply_text('введите количество конфет: ')
+#     candies = update.message.text
+#     if candies > 0:
+#         bot = candies % (max + min)
+#         candies -= bot
+#         update.message.reply_text(f'{candies} осталось')
+#         if candies < 0:
+#             update.message.reply_text('you lose!')
+#         take = update.message.text
+#         print(take)
+#         candies -= int(take)
+#         update.message.reply_text(f'{candies} осталось')
+#         if candies < 0:
+#             update.message.reply_text('you win!')
+        
+    
