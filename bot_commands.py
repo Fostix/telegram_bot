@@ -61,28 +61,29 @@ def echo(update: Update, context: CallbackContext):
 
 
 
-candies = 27
-def start_game_candies(update: Update, context: CallbackContext):
-    update.message.reply_text('setting games')
-    game_activate = True
-    return game_activate
+# candies = 27
+# def start_game_candies(update: Update, context: CallbackContext):
+#     update.message.reply_text('setting games')
+#     game_activate = True
+#     return game_activate
 
 
-def game_setting(update: Update, context: CallbackContext):
+# # not on
+# def game_setting(update: Update, context: CallbackContext):
 
-    update.message.reply_text('how many candies: ')
-    candies = int(update.message.text)
+#     update.message.reply_text('how many candies: ')
+#     candies = int(update.message.text)
 
-    update.message.reply_text('max take candies: ')
-    max = int(update.message.text)
-    return candies, max
+#     update.message.reply_text('max take candies: ')
+#     max = int(update.message.text)
+#     return candies, max
     
 
 
-
-def input_method(update: Update, context: CallbackContext):
-    take = int(update.message.text)
-    return take
+# # not on
+# def input_method(update: Update, context: CallbackContext):
+#     take = int(update.message.text)
+#     return take
 
 
 
@@ -101,6 +102,7 @@ def g(update: Update, context: CallbackContext, candies, max):
         update.message.reply_text(f'{candies} осталось')
         if candies < 0:
             update.message.reply_text('you lose!')
+
         take = update.message.text
         print(take)
         candies -= int(take)
