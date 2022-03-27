@@ -53,6 +53,13 @@ def echo(update: Update, context: CallbackContext):
     update.message.reply_text(update.message.text)
 
 
+
+
+
+
+
+
+
 candies = 27
 def start_game_candies(update: Update, context: CallbackContext):
     update.message.reply_text('setting games')

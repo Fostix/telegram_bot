@@ -13,19 +13,6 @@ updater.dispatcher.add_handler(CommandHandler('help', help_command))
 updater.dispatcher.add_handler(CommandHandler('sum', sum_command))
 updater.dispatcher.add_handler(CommandHandler('minus', minus_command))
 updater.dispatcher.add_handler(CommandHandler('root', root_command))
-<<<<<<< HEAD
-=======
-
-
-updater.dispatcher.add_handler(CommandHandler('g', g))
-updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, g))
-
-
-
-updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
-
-
->>>>>>> 53e0e5fc4f2674a6fdc8048f75e4745ddd9f28e9
 
 
 game_activate = False
@@ -35,10 +22,10 @@ if game_activate:
     candies, max = updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, game_setting))
 
 if candies > 0:
-    updater.dispatcher.add_handler(CommandHandler('g', g(candies, max)), MessageHandler(Filters.text & ~Filters.command, g))
+    updater.dispatcher.add_handler(Filters.text & ~Filters.command, g)
 
 
-## updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+# updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
 
 
 print('server start') # не обязательно
