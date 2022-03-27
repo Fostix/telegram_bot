@@ -1,3 +1,4 @@
+from ast import Call
 from telegram.ext import CallbackContext
 import datetime
 from spy import *
@@ -76,6 +77,12 @@ def game_setting(update: Update, context: CallbackContext):
     max = int(update.message.text)
     return candies, max
     
+
+
+
+def input_method(update: Update, context: CallbackContext):
+    take = int(update.message.text)
+    return take
 
 
 

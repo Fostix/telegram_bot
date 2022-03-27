@@ -22,7 +22,7 @@ if game_activate:
     candies, max = updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, game_setting))
 
 if candies > 0:
-    updater.dispatcher.add_handler(Filters.text & ~Filters.command, g)
+    updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, game_setting))
 
 
 # updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
