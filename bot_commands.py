@@ -1,3 +1,4 @@
+from ast import Call
 from telegram.ext import CallbackContext
 import datetime
 from spy import *
@@ -53,44 +54,69 @@ def echo(update: Update, context: CallbackContext):
     update.message.reply_text(update.message.text)
 
 
+
+
+
+
+
+
+
 candies = 27
 def start_game_candies(update: Update, context: CallbackContext):
+    print('text1')
     update.message.reply_text('setting games')
     game_activate = True
+    print('text2')
+    print(game_activate)
+
     return game_activate
 
 
+# not on
 def game_setting(update: Update, context: CallbackContext):
 
     update.message.reply_text('how many candies: ')
     candies = int(update.message.text)
-
+    print(candies)
     update.message.reply_text('max take candies: ')
     max = int(update.message.text)
+    print(max)
     return candies, max
     
 
 
+# not on
+# def input_method(update: Update, context: CallbackContext):
+#     take = int(update.message.text)
+#     return take
 
 
 
-def g(update: Update, context: CallbackContext, candies, max):
+
+
+def g(update: Update, context: CallbackContext):
     log(update, context)
     update.message.reply_text('start game!, введите сколько конфет можно ввести: ')
     max = update.message.text
     min = 1
     update.message.reply_text('введите количество конфет: ')
     candies = update.message.text
+    print('text3')
     if candies > 0:
+        print(candies)
+        print(max)
         bot = candies % (max + min)
         candies -= bot
         update.message.reply_text(f'{candies} осталось')
         if candies < 0:
             update.message.reply_text('you lose!')
+        print('text4')
         take = update.message.text
+        
         print(take)
         candies -= int(take)
         update.message.reply_text(f'{candies} осталось')
+        print('text5')
         if candies < 0:
             update.message.reply_text('you win!')
         
