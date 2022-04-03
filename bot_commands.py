@@ -1,4 +1,3 @@
-from ast import Call
 from telegram.ext import CallbackContext
 import datetime
 from spy import *
@@ -61,11 +60,12 @@ def echo(update: Update, context: CallbackContext):
 
 
 
-candies = 27
 def start_game_candies(update: Update, context: CallbackContext):
     print('text1')
+
     update.message.reply_text('setting games')
     game_activate = True
+    update.message.reply_text(game_activate)
     print('text2')
     print(game_activate)
 
@@ -119,5 +119,49 @@ def g(update: Update, context: CallbackContext):
         print('text5')
         if candies < 0:
             update.message.reply_text('you win!')
+
+
+
+
+
+
+
+def start_game(update: Update, context: CallbackContext):
+    update.message.reply_text('start game')
+
+
+def setting(update: Update, context: CallbackContext):
+    check = False
+    if not check:
+        update.message.reply_text('how many candies at oll?')
+        candies = int(update.message.text)
+        check = True
+    if check:
+        update.message.reply_text('max take candies: ')
+        max = int(update.message.text)
+        check = False
+    print('candies:{}, max:{}'.format(candies, max))
+
+
+def inputter(update: Update, context: CallbackContext):
+    number = int(update.message.text)
+    return number
+
+
+
+
+def game(update: Update, context: CallbackContext):
+    max = 0
+    update.message.reply_text('how many candies')
+    candies = int(update.message.text)
+    if max == 0:
+        update.message.reply_text('max take candies:')
+        max = int(update.message.text)
+        print('candies:{}, max:{}'.format(candies, max))
+
+
+
+
+
         
     
